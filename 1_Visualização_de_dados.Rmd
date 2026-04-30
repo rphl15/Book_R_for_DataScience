@@ -117,15 +117,36 @@ ggplot(
   data = pinguins,
   mapping = aes(x = comprimento_bico, y = profundidade_bico)
 )+
+  geom_point(aes(color = especie, shape = especie))+
+  geom_smooth() +  scale_color_colorblind()
+
+pasta = "C:/Users/raphael.eugenio/Desktop/Raphael/R_for_DataScience/"
+
+ggsave(paste0(pasta, "Grafico1.jpg"), height=13, width=20, units="cm", dpi= 600)
+```
+
+
+```{r}
+# Exercício 4 - O que acontece se você fizer um gráfico de dispersão de especie em função de profundidade_bico? Qual seria uma melhor escolha de geometria (geom)?
+ggplot(
+  data = pinguins,
+  mapping = aes(x = especie, y = profundidade_bico)
+)+ 
+  geom_col(aes(color = especie, shape = especie))
+
+
+```
+
+
+```{r}
+# Exercício 5 - Por que o seguinte erro ocorre e como você poderia corrigi-lo? ggplot(data = pinguins) + geom_point()
+ggplot(
+  data = pinguins,
+  mapping = aes(x = comprimento_nadadeira, y = comprimento_bico)
+)+
   geom_point()+
   geom_smooth()
 
-```
-
-
-```{r}
-```
-```{r}
 ```
 
 
