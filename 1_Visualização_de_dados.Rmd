@@ -4,6 +4,8 @@ library(tidyverse)
 
 
 ```{r}
+install.packages("dados")
+install.packages("ggthemes")
 library(dados)
 library(ggthemes)
 ```
@@ -117,36 +119,62 @@ ggplot(
   data = pinguins,
   mapping = aes(x = comprimento_bico, y = profundidade_bico)
 )+
-  geom_point(aes(color = especie, shape = especie))+
-  geom_smooth() +  scale_color_colorblind()
-
-pasta = "C:/Users/raphael.eugenio/Desktop/Raphael/R_for_DataScience/"
-
-ggsave(paste0(pasta, "Grafico1.jpg"), height=13, width=20, units="cm", dpi= 600)
-```
-
-
-```{r}
-# Exercício 4 - O que acontece se você fizer um gráfico de dispersão de especie em função de profundidade_bico? Qual seria uma melhor escolha de geometria (geom)?
-ggplot(
-  data = pinguins,
-  mapping = aes(x = especie, y = profundidade_bico)
-)+ 
-  geom_col(aes(color = especie, shape = especie))
-
-
-```
-
-
-```{r}
-# Exercício 5 - Por que o seguinte erro ocorre e como você poderia corrigi-lo? ggplot(data = pinguins) + geom_point()
-ggplot(
-  data = pinguins,
-  mapping = aes(x = comprimento_nadadeira, y = comprimento_bico)
-)+
   geom_point()+
   geom_smooth()
 
+```
+
+
+
+```{r}
+# Execício 4 - O que acontece se você fizer um gráfico de dispersão de especie em função de profundidade_bico? Qual seria uma melhor escolha de geometria (geom)?
+ggplot(
+  data = pinguins,
+  mapping = aes(x = profundidade_bico, y = especie)
+)+
+  geom_jitter(width = 0.2)+
+  geom_smooth()
+```
+
+
+```{r}
+ggplot(
+  data = pinguins,
+  mapping = aes(x = especie, y = profundidade_bico)
+  
+)+
+  geom_point()
+```
+
+
+```{r}
+ggplot(
+  data = pinguins,
+  mapping = aes(x = massa_corporal ,y = comprimento_bico)
+)+
+  geom_point(na.rm = TRUE)+
+  geom_smooth()+
+  labs(
+    title = "Comparação entre Massa Corporal e Comprimento do bico",
+    subtitle = "Medidas retiradas em 2017",
+    x = "Massa Corporal (g)",
+    y = "Comprimento do bico (m)",
+    color = "Espécie",
+    shape = "Espécie"
+)
+```
+
+
+```{r}
+glimpse(pinguins)
+```
+
+
+```{r}
+```
+
+
+```{r}
 ```
 
 
