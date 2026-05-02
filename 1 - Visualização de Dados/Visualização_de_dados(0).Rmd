@@ -1,0 +1,203 @@
+```{r}
+library(tidyverse)
+```
+
+
+```{r}
+install.packages("dados")
+install.packages("ggthemes")
+library(dados)
+library(ggthemes)
+```
+
+
+```{r}
+dados::pinguins
+```
+
+
+```{r}
+glimpse(pinguins)
+```
+
+
+```{r}
+ggplot(
+  data = pinguins,
+  mapping = aes(x = comprimento_nadadeira, y = massa_corporal)
+) +
+  geom_point()
+```
+
+
+```{r}
+ggplot(
+  data = pinguins,
+  mapping = aes(x = comprimento_nadadeira, y = massa_corporal, color = especie)
+) +
+  geom_point()
+
+```
+
+
+```{r}
+ggplot(
+  data = pinguins,
+  mapping = aes(x = comprimento_nadadeira, y = massa_corporal)
+) +
+  geom_point()+
+  geom_smooth(method = 'lm')
+```
+
+```{r}
+ggplot(
+  data = pinguins,
+  mapping = aes(x = comprimento_nadadeira, y = massa_corporal, color = especie)
+) +
+  geom_point()+
+  geom_smooth(method = 'lm')
+
+```
+
+
+```{r}
+ggplot(
+  data = pinguins,
+  mapping = aes(x = comprimento_nadadeira, y = massa_corporal)
+) +
+  geom_point(mapping = aes(color = especie)) +
+  geom_smooth(method = "lm")
+)
+```
+
+
+```{r}
+ggplot(
+  data = pinguins,
+  mapping = aes(x = comprimento_nadadeira, y = massa_corporal)
+) +
+  geom_point(mapping = aes(color = especie, shape = especie)) +
+  geom_smooth(method = "lm")
+```
+
+
+```{r}
+ggplot(pinguins, aes(x = comprimento_nadadeira, y = massa_corporal))+
+  geom_point(aes(color = especie, shape = especie)) +
+  geom_smooth(method = "lm")+
+  labs(
+    title = "Massa Corporal e comprimento da nadadeira",
+    subtitle = "Medidas para Pinguim-de-adélia, Pinguim-de-barbicha e Pinguim-gentoo",
+    x = "Comprimento da nadadeira (mm)",
+    y = "Massa corporal (g)",
+    color = "Espécie", 
+    shape = "Espécie"
+) + scale_color_colorblind()
+```
+
+
+```{r}
+# Exercício 1 - Quantas linhas existem em pinguins? E quantas colunas?
+dim(pinguins) # Retorna os dois
+nrow(pinguins) # Apenas as Linhas
+ncol(pinguins) # Apenas colunas
+```
+
+
+```{r}
+# Exercício 2 - O que a variável profundidade_bico no data frame pinguins descreve? Leia a documentação da base pinguins para descobrir, utilizando o comando ?pinguins .
+?pinguins
+
+# Resposta:  Um número inteiro que indica a profundidade do bico (em milímetros)
+
+```
+
+
+```{r}
+# Exercício 3 - Faça um gráfico de dispersão de profundidade_bico em função de comprimento_bico. Ou seja, faça um gráfico de dispersão com profundidade_bico no eixo y e comprimento_bico no eixo x. Descreva a relação entre essas duas variáveis.
+ggplot(
+  data = pinguins,
+  mapping = aes(x = comprimento_bico, y = profundidade_bico)
+)+
+  geom_point()+
+  geom_smooth()
+
+```
+
+
+
+```{r}
+# Execício 4 - O que acontece se você fizer um gráfico de dispersão de especie em função de profundidade_bico? Qual seria uma melhor escolha de geometria (geom)?
+ggplot(
+  data = pinguins,
+  mapping = aes(x = profundidade_bico, y = especie)
+)+
+  geom_jitter(width = 0.2)+
+  geom_smooth()
+```
+
+
+```{r}
+ggplot(
+  data = pinguins,
+  mapping = aes(x = especie, y = profundidade_bico)
+  
+)+
+  geom_point()
+```
+
+
+```{r}
+ggplot(
+  data = pinguins,
+  mapping = aes(x = massa_corporal ,y = comprimento_bico)
+)+
+  geom_point(na.rm = TRUE)+
+  geom_smooth()+
+  labs(
+    title = "Comparação entre Massa Corporal e Comprimento do bico",
+    subtitle = "Medidas retiradas em 2017",
+    x = "Massa Corporal (g)",
+    y = "Comprimento do bico (m)",
+    color = "Espécie",
+    shape = "Espécie"
+)
+```
+
+
+```{r}
+glimpse(pinguins)
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
